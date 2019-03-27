@@ -30,7 +30,9 @@ def upload():
         file = [{'message': 'File Upload Successful', 'filename': filename, 'description': desc }]
         return jsonify(file=file)
     else:
-        return jsonify(errors=form_errors(form))
+        errors = form_errors(form)
+        errors = [{'Errors': errors }]
+        return jsonify(errors=errors)
 
 
 
